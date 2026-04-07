@@ -10,6 +10,7 @@
 // ── EmailJS config (public key only — safe in frontend) ───────
 const EMAILJS_SERVICE_ID  = 'service_ujdih9m';
 const EMAILJS_TEMPLATE_ID = 'template_2k1ctp2';
+const orderId = data.order_id;
 // Public key is already initialized in index.html <head>
 
 // ═══════════════════════════════════════════
@@ -98,10 +99,16 @@ async function confirmOrder() {
     let orderData;
     try {
         const res = await fetch('/api/create-order', {
-            method:  'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body:    JSON.stringify({ totalAmount:totalAmount }),
-        });
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        totalAmount: Number(totalAmount)
+    })
+});
+
+const data = await res.json();
 
         if (!res.ok) throw new Error(`Server error: ${res.status}`);
         orderData = await res.json();
@@ -138,6 +145,7 @@ async function confirmOrder() {
 
         handler: async function (response) {
             showLoadingOverlay('Verifying payment...');
+            console.log("Payment success:", response);
 
             // ── Step 3: Verify payment signature via backend ───────────
             // This prevents fake payment success — backend checks HMAC

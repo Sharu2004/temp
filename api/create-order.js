@@ -8,11 +8,9 @@ module.exports = async (req, res) => {
 
         const { totalAmount } = body;
 
-        if (!totalAmount || totalAmount <= 0) {
-            return res.status(400).json({ error: 'Invalid amount' });
+        if (!totalAmount || isNaN(totalAmount)) {
+            throw new Error("Invalid totalAmount");
         }
-
-        const Razorpay = require('razorpay');
 
         const razorpay = new Razorpay({
             key_id: process.env.RAZORPAY_KEY_ID,
@@ -24,14 +22,14 @@ module.exports = async (req, res) => {
             currency: 'INR',
         });
 
-        return res.json({
-            order_id: order.id,
+        res.json({
+            order_id: order.id,                 // ✅ ONLY THIS matters
             key_id: process.env.RAZORPAY_KEY_ID,
             amount: totalAmount,
         });
 
     } catch (err) {
-        console.error("CREATE ORDER ERROR:", err);
-        return res.status(500).json({ error: err.message });
+        console.error("ERROR:", err);
+        res.status(500).json({ error: err.message });
     }
 };
