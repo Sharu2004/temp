@@ -603,11 +603,12 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/aos.js"></script>
 <script src="js/swiper-bundle.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <!-- MAIN LOGIC -->
 <script src="js/product.js" defer></script>
 
 <script>
+    emailjs.init("BsjpxXvQgjHkgMo4r");
     $(window).scroll(function () {
         $('.navbar').toggleClass('newnav', $(this).scrollTop() > 10);
     });

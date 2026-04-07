@@ -69,6 +69,7 @@ function showSuccessPopup({ orderNumber, paymentId, totalAmount }) {
     document.body.appendChild(overlay);
 }
 
+
 // MAIN FUNCTION
 async function confirmOrder() {
 
@@ -139,53 +140,76 @@ async function confirmOrder() {
             contact: phone
         },
 
-        handler: async function (response) {
+       handler: async function (response) {
 
-            console.log("HANDLER TRIGGERED");
+    console.log("HANDLER TRIGGERED");
 
-            if (window.paymentHandled) return;
-            window.paymentHandled = true;
+    if (window.paymentHandled) return;
+    window.paymentHandled = true;
 
-            try {
+    try {
 
-                const verifyRes = await fetch('/api/verify-payment', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        razorpay_order_id: response.razorpay_order_id,
-                        razorpay_payment_id: response.razorpay_payment_id,
-                        razorpay_signature: response.razorpay_signature,
-                        totalAmount
-                    })
-                });
+        const verifyRes = await fetch('/api/verify-payment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+                totalAmount
+            })
+        });
 
-                const result = await verifyRes.json();
+        const result = await verifyRes.json();
 
-                if (!result.success) {
-                    alert("Payment verification failed");
-                    return;
-                }
-
-                // CLOSE MODAL
-                const modal = bootstrap.Modal.getInstance(document.getElementById('customerModal'));
-                if (modal) modal.hide();
-
-                // SHOW POPUP
-                showSuccessPopup({
-                    orderNumber: response.razorpay_order_id,
-                    paymentId: response.razorpay_payment_id,
-                    totalAmount
-                });
-
-                // RESET CART
-                document.querySelectorAll('.qty').forEach(i => i.value = '');
-                document.getElementById('totalAmount').innerText = 0;
-
-            } catch (err) {
-                console.error(err);
-                alert("Verification error");
-            }
+        if (!result.success) {
+            alert("Payment verification failed");
+            return;
         }
+
+        // CLOSE MODAL
+        const modal = bootstrap.Modal.getInstance(document.getElementById('customerModal'));
+        if (modal) modal.hide();
+
+        // SHOW POPUP
+        showSuccessPopup({
+            orderNumber: response.razorpay_order_id,
+            paymentId: response.razorpay_payment_id,
+            totalAmount
+        });
+
+        // ✅ SEND EMAIL (NEW)
+        emailjs.send(
+            EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID,
+            {
+                order_number: response.razorpay_order_id,
+                payment_id: response.razorpay_payment_id,
+                total_amount: totalAmount,
+                customer_name: name,
+                customer_phone: phone,
+                customer_address: address,
+                customer_city: city,
+                customer_pincode: pincode,
+                order_items: cartItems.join(', ')
+            }
+        )
+        .then(() => {
+            console.log("✅ EMAIL SENT");
+        })
+        .catch(err => {
+            console.error("❌ EMAIL FAILED:", err);
+        });
+
+        // RESET CART
+        document.querySelectorAll('.qty').forEach(i => i.value = '');
+        document.getElementById('totalAmount').innerText = 0;
+
+    } catch (err) {
+        console.error(err);
+        alert("Verification error");
+    }
+}
     };
 
     // STORE INSTANCE (IMPORTANT)
