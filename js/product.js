@@ -71,16 +71,13 @@ async function confirmOrder() {
         return;
     }
 
-    // STEP 1: CREATE ORDER
     let orderData;
 
     try {
         const res = await fetch('/api/create-order', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                totalAmount: Number(totalAmount)
-            })
+            body: JSON.stringify({ totalAmount: Number(totalAmount) })
         });
 
         orderData = await res.json();
@@ -95,7 +92,6 @@ async function confirmOrder() {
         return;
     }
 
-    // STEP 2: RAZORPAY
     const options = {
         key: orderData.key_id,
         amount: totalAmount * 100,
@@ -113,7 +109,10 @@ async function confirmOrder() {
 
             console.log("Payment success:", response);
 
-            // VERIFY PAYMENT
+            // 🚨 prevent double execution
+            if (window.paymentDone) return;
+            window.paymentDone = true;
+
             try {
                 const verifyRes = await fetch('/api/verify-payment', {
                     method: 'POST',
@@ -135,7 +134,42 @@ async function confirmOrder() {
                     return;
                 }
 
-                alert("Payment successful!");
+                // ✅ CLOSE CUSTOMER MODAL (IMPORTANT)
+                const modal = bootstrap.Modal.getInstance(document.getElementById('customerModal'));
+                if (modal) modal.hide();
+
+                // ✅ SHOW SUCCESS POPUP (FIXED)
+                function showSuccessPopup({ orderNumber, paymentId, totalAmount, name, cartItems }) {
+
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position:fixed;
+        top:0;left:0;width:100%;height:100%;
+        background:rgba(0,0,0,0.6);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        z-index:9999;
+    `;
+
+    overlay.innerHTML = `
+        <div style="background:#fff;padding:20px;border-radius:10px;width:90%;max-width:400px;text-align:center">
+            <h3 style="color:green">Payment Successful</h3>
+            <p><b>Order ID:</b> ${orderNumber}</p>
+            <p><b>Payment ID:</b> ${paymentId}</p>
+            <p><b>Total:</b> ₹${totalAmount}</p>
+            <button onclick="this.closest('div').parentElement.remove()" style="margin-top:10px;padding:10px 20px;background:#000;color:#fff;border:none;border-radius:5px">
+                Close
+            </button>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+}
+
+                // ✅ RESET CART
+                document.querySelectorAll('.qty').forEach(i => i.value = '');
+                document.getElementById('totalAmount').innerText = 0;
 
             } catch (err) {
                 console.error(err);
@@ -144,6 +178,5 @@ async function confirmOrder() {
         }
     };
 
-    const rzp = new Razorpay(options);
-    rzp.open();
+    new Razorpay(options).open();
 }
