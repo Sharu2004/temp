@@ -100,7 +100,7 @@ async function confirmOrder() {
         const res = await fetch('/api/create-order', {
             method:  'POST',
             headers: { 'Content-Type': 'application/json' },
-            body:    JSON.stringify({ totalAmount }),
+            body:    JSON.stringify({ totalAmount:totalAmount }),
         });
 
         if (!res.ok) throw new Error(`Server error: ${res.status}`);
