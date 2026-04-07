@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanga Mani</title>
+    <meta name="description"
+        content="Taste the traditional peanut burfi from Dindigul Thangamani, made with natural ingredients and trusted quality for over 70 years.">
+
+    <link rel="shortcut icon" href="images/fav.png" type="image/x-icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- EmailJS — only PUBLIC KEY here, safe to expose -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // Public key only — secret is NOT needed in frontend
+        emailjs.init('BsjpxXvQgjHkgMo4r');
+    </script>
+
+    <!-- Razorpay Checkout Script (no keys here — keys fetched from backend) -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="container-fluid bg-c2 d-flex justify-content-center first-top py-2 px-4">
+        <p class="mb-0 w d-lg-none">All over india distributors wanted</p>
+        <div class="col-12 p-2 bg-c2 d-none d-lg-block">
+            <div class="row">
+                <div class="col-5 col-lg-5 col-xl-5 d-flex order-1">
+                    <div class="first-text ps-lg-3 mb-0">
+                        <i class="fa-sharp fa-solid w fa-phone"></i>
+                        <p class="ftp ms-2 mb-0 w">+91 99650 61448</p>
+                    </div>
+                </div>
+                <div class="col-7 col-lg-7 col-xl-7 d-flex justify-content-end order-2 align-items-center px-3">
+                    <p class="mb-0 w me-3">All over india distributors wanted</p>
+                    <div class="first-text d-none d-lg-flex mb-0 me-3">
+                        <i class="fa-sharp fa-regular w fa-envelope fs-5"></i>
+                        <p class="ftp ms-2 mb-0 small w">marketing@thangamani.in</p>
+                    </div>
+                    <a href="" target="_blank"><i class="fa-brands border-start ps-3 w fa-facebook-f fs-5"></i></a>
+                    <a href="https://www.instagram.com/thangamani1958?igsh=MWp6bjdpMGM3bG9yMg==" target="_blank" class="ms-4">
+                        <i class="fa-brands w fa-instagram fs-5"></i>
+                    </a>
+                    <a href="https://wa.me/+919965061448" class="ms-4">
+                        <i class="fa-brands w fa-whatsapp fs-5"></i>
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=marketing@thangamani.in" class="ms-4">
+                        <i class="fa-regular w fa-envelope fs-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png" class="logo" alt="Thanga Mani Logo">
+            </a>
+
+            <p class="nv-n-p mb-0 d-lg-none">
+                <span class="c1 fw-bold">FREE SHIPPING OVER ₹300</span><br>
+                <span>Plus, two-day delivery <br>on thousands of items.</span>
+            </p>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <img src="images/menu.png" class="menu" alt="">
+            </button>
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <img src="images/logo-w.png" id="offcanvasNavbarLabel" class="logo-nv" alt="">
+                    <button type="button" class="btn-close border-0 btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav nav-menus flex-grow-1 justify-content-center mb-4 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link nav-active" aria-current="page" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="about-us.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="contact-us.html">Contact Us</a></li>
+                    </ul>
+
+                    <p class="my-auto">
+                        <span class="c1">FREE SHIPPING OVER ₹300</span><br>
+                        <span class="small">Plus, two-day delivery on thousands of items.</span>
+                    </p>
+
+                    <a href="tel:+919965061448" class="btn enq-btn-nv rounded-5 mt-4 mt-lg-0">
+                        <div class="nv-rnd me-2">
+                            <img src="images/caall-w.png" class="nv-rnd-img fa-beat-fade" alt="">
+                        </div>
+                        <div class="text-start">
+                            <p class="small nv-call-us mb-0 c1">Call Us</p>
+                            <p class="m-0 nv-tx">+91 99650 61448</p>
+                        </div>
+                    </a>
+
+                    <div class="col-lg-12 d-flex gap-2 d-lg-none mob-s-nav my-3">
+                        <a href="https://www.instagram.com/thangamani1958?igsh=MWp6bjdpMGM3bG9yMg==" target="_blank">
+                            <div class="ab-lgo-bx"><img src="images/instagram-w.png" alt="Instagram"></div>
+                        </a>
+                        <a href=""><div class="ab-lgo-bx"><img src="images/fb-w.png" alt="Facebook"></div></a>
+                        <a href=""><div class="ab-lgo-bx"><img src="images/twitter-w.png" alt="Twitter"></div></a>
+                        <a href="https://wa.me/+919965061448">
+                            <div class="ab-lgo-bx"><img src="images/whatsapp-w.png" alt="WhatsApp"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SLIDER -->
+    <div class="container-fluid px-0 mb-5 hero">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide hero-slide">
+                    <img src="images/banner1-new.jpeg" class="hero-sl-img d-none d-md-block" alt="Banner 1">
+                    <img src="images/banner1-new-mob.jpeg" class="hero-sl-img d-md-none" alt="Banner 1 Mobile">
+                    <div class="shade-botom"></div>
+                </div>
+                <div class="swiper-slide hero-slide">
+                    <img src="images/banner1.jpeg" class="hero-sl-img d-none d-md-block" alt="Banner 2">
+                    <img src="images/banner1-mob.jpeg" class="hero-sl-img d-md-none" alt="Banner 2 Mobile">
+                    <div class="shade-botom"></div>
+                </div>
+                <div class="swiper-slide hero-slide">
+                    <img src="images/banner3.jpg" class="hero-sl-img d-none d-md-block" alt="Banner 3">
+                    <img src="images/banner1-mob.jpeg" class="hero-sl-img d-md-none" alt="Banner 3 Mobile">
+                    <div class="shade-botom"></div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="autoplay-progress">
+                <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"></circle></svg>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="container my-4 pb-5 px-4 px-lg-0">
+
+        <!-- ORDER MODAL — customer details form -->
+        <div class="modal fade order-modal" id="customerModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content order-modal-box">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Complete Your Order</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input id="custName"    class="form-control order-input" placeholder="Full Name" autocomplete="name">
+                        <input id="custPhone"   class="form-control order-input" placeholder="Phone Number (10 digits)" type="tel" maxlength="10" autocomplete="tel">
+                        <input id="custCity"    class="form-control order-input" placeholder="City" autocomplete="address-level2">
+                        <input id="custPincode" class="form-control order-input" placeholder="Pincode (6 digits)" type="tel" maxlength="6">
+                        <textarea id="custAddress" class="form-control order-input" placeholder="Full Delivery Address" autocomplete="street-address"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                        <button class="btn btn-glass-ef order-confirm-btn" onclick="confirmOrder()">Proceed to Pay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ PEANUT BURFI ═══ -->
+        <div class="cat-titel d-flex w-100 mb-4 justify-content-center">
+            <div class="text-center">
+                <img src="images/title-top.png" class="col-3" alt="">
+                <h2 class="text-center mb-0 mt-2 hf c1">Peanut Burfi</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/36 n Kadalai.jpg" class="img-fluid" alt="Peanut Burfi Bar 36Pcs"></div>
+                    <h6>Peanut Burfi Bar 36Pcs</h6><p>₹145 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Peanut Burfi Bar 36Pcs" data-price="145">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/36 n Thokku.jpg" class="img-fluid" alt="Crused Peanut Burfi Bar 36Pcs"></div>
+                    <h6>Crused Peanut Burfi Bar 36Pcs</h6><p>₹145 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Crused Peanut Burfi Bar 36Pcs" data-price="145">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/30 N Kadalai.jpg" class="img-fluid" alt="Peanut Burfi Bar 30Pcs"></div>
+                    <h6>Peanut Burfi Bar 30Pcs</h6><p>₹120 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Peanut Burfi Bar 30Pcs" data-price="120">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/30 N Thokku.jpg" class="img-fluid" alt="Crused Peanut Burfi Bar 30Pcs"></div>
+                    <h6>Crused Peanut Burfi Bar 30Pcs</h6><p>₹120 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Crused Peanut Burfi Bar 30Pcs" data-price="120">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/24n Kadalai.jpg" class="img-fluid" alt="Peanut Burfi Bar 24Pcs"></div>
+                    <h6>Peanut Burfi Bar 24Pcs</h6><p>₹96 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Peanut Burfi Bar 24Pcs" data-price="96">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/24n Thokku.jpg" class="img-fluid" alt="Crused Peanut Burfi Bar 24Pcs"></div>
+                    <h6>Crused Peanut Burfi Bar 24Pcs</h6><p>₹96 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Crused Peanut Burfi Bar 24Pcs" data-price="96">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/PeanutBurfiBar18Pcs70.jpg" class="img-fluid" alt="Peanut Burfi Bar 18Pcs"></div>
+                    <h6>Peanut Burfi Bar 18Pcs</h6><p>₹75 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Peanut Burfi Bar 18Pcs" data-price="75">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/CrusedPeanutBurfiBar18Pcs70.jpg" class="img-fluid" alt="Crused Peanut Burfi Bar 18Pcs"></div>
+                    <h6>Crused Peanut Burfi Bar 18Pcs</h6><p>₹75 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Crused Peanut Burfi Bar 18Pcs" data-price="75">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/PeanutBurfiBar12Pcs45.jpeg" class="img-fluid" alt="Peanut Burfi Bar 12Pcs"></div>
+                    <h6>Peanut Burfi Bar 12Pcs</h6><p>₹50 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Peanut Burfi Bar 12Pcs" data-price="50">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/CrusedPeanutBurfiBar12Pcs45.jpeg" class="img-fluid" alt="Crused Peanut Burfi Bar 12Pcs"></div>
+                    <h6>Crused Peanut Burfi Bar 12Pcs</h6><p>₹50 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Crused Peanut Burfi Bar 12Pcs" data-price="50">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/BlackSesamePeanutBurfiBar12Pcs50.jpeg" class="img-fluid" alt="Black Sesame Peanut Burfi Bar 12Pcs"></div>
+                    <h6>Black Sesame Peanut Burfi Bar 12Pcs</h6><p>₹50 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Black Sesame Peanut Burfi Bar 12Pcs" data-price="50">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/WhiteSesamePeanutBurfiBar12Pcs50.jpeg" class="img-fluid" alt="White Sesame Peanut Burfi Bar 12Pcs"></div>
+                    <h6>White Sesame Peanut Burfi Bar 12Pcs</h6><p>₹50 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="White Sesame Peanut Burfi Bar 12Pcs" data-price="50">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/12n Kadalai Ball.jpg" class="img-fluid" alt="Peanut Burfi Ball 12Pcs"></div>
+                    <h6>Peanut Burfi Ball 12Pcs</h6><p>₹50 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Peanut Burfi Ball 12Pcs" data-price="48">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/12n Thokku BAll.jpg" class="img-fluid" alt="Crused Peanut Burfi Ball 12Pcs"></div>
+                    <h6>Crused Peanut Burfi Ball 12Pcs</h6><p>₹50 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Crused Peanut Burfi Ball 12Pcs" data-price="48">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/12n Black Sesamee  BAll.jpg" class="img-fluid" alt="Black Sesame Peanut Burfi Ball 12Pcs"></div>
+                    <h6>Black Sesame Peanut Burfi Ball 12Pcs</h6><p>₹50 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Black Sesame Peanut Burfi Ball 12Pcs" data-price="50">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/12n white Sesamee  BAll.jpg" class="img-fluid" alt="White Sesame Peanut Burfi Ball 12Pcs"></div>
+                    <h6>White Sesame Peanut Burfi Ball 12Pcs</h6><p>₹50 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="White Sesame Peanut Burfi Ball 12Pcs" data-price="50">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/PeanutBurfiBar6Pcs20.jpeg" class="img-fluid" alt="Peanut Burfi Bar 6Pcs"></div>
+                    <h6>Peanut Burfi Bar 6Pcs</h6><p>₹30 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Peanut Burfi Bar 6Pcs" data-price="30">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/CrusedPeanutBurfiBar6Pcs20.jpeg" class="img-fluid" alt="Crused Peanut Burfi Bar 6Pcs"></div>
+                    <h6>Crused Peanut Burfi Bar 6Pcs</h6><p>₹30 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Crused Peanut Burfi Bar 6Pcs" data-price="30">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/BlackSesamePeanutBurfiBar6Pcs20.jpeg" class="img-fluid" alt="Black Sesame Peanut Burfi Bar 6Pcs"></div>
+                    <h6>Black Sesame Peanut Burfi Bar 6Pcs</h6><p>₹30 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Black Sesame Peanut Burfi Bar 6Pcs" data-price="30">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/WhiteSesamePeanutBurfiBar6Pcs20.jpeg" class="img-fluid" alt="White Sesame Peanut Burfi Bar 6Pcs"></div>
+                    <h6>White Sesame Peanut Burfi Bar 6Pcs</h6><p>₹30 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="White Sesame Peanut Burfi Bar 6Pcs" data-price="20">
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ KARUPPATTI PEANUT BURFI ═══ -->
+        <div class="cat-titel d-flex w-100 mb-4 justify-content-center">
+            <div class="text-center">
+                <img src="images/title-top.png" class="col-3" alt="">
+                <h2 class="text-center mb-0 mt-2 hf c1">Karuppatti Peanut Burfi</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/7N Vallarai Peanut Burfi Tray.jpg.jpeg" class="img-fluid ob-center" alt="7N Palm jaggery Vallarai Peanut Burfi Tray 7Pcs"></div>
+                    <h6>7N Palm jaggery Vallarai Peanut Burfi Tray 7Pcs</h6><p>₹70 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="7N Palm jaggery Vallarai Peanut Burfi Tray  7Pcs" data-price="70">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/7N Sombu Peanut Burfi Tray.jpg.jpeg" class="img-fluid ob-center" alt="7N Palm jaggery Sombu Peanut Burfi Tray 7Pcs"></div>
+                    <h6>7N Palm jaggery Sombu Peanut Burfi Tray 7Pcs</h6><p>₹70 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="7N Palm jaggery Sombu Peanut Burfi Tray 7Pcs" data-price="70">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/7N Thoothuvalai Peanut Burfi Tray.jpg.jpeg" class="img-fluid ob-center" alt=""></div>
+                    <h6>7N Palm jaggery Thoothuvalai Peanut Burfi Tray 7Pcs</h6><p>₹70 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="7N Palm jaggery Thoothuvalai Peanut Burfi Tray 7Pcs" data-price="70">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/7N Pepper Peanut Burfi Tray.jpg.jpeg" class="img-fluid ob-center" alt=""></div>
+                    <h6>7N Palm jaggery Pepper Peanut Burfi Tray 7Pcs</h6><p>₹70 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="7N Palm jaggery Pepper Peanut Burfi Tray 7Pcs" data-price="70">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/7N palm jaggery Millets Peanut Burfi Tray.jpg.jpeg" class="img-fluid ob-center" alt=""></div>
+                    <h6>7N Palm jaggery Millets Peanut Burfi Tray 7Pcs</h6><p>₹70 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="7N Palm jaggery Millets Peanut Burfi Tray 7Pcs" data-price="70">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/7N palm jaggery Jeera Peanut Burfi Tray.jpg.jpeg" class="img-fluid ob-center" alt=""></div>
+                    <h6>7N Palm jaggery Jeera Peanut Burfi Tray 7Pcs</h6><p>₹70 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="7N Palm jaggery Jeera Peanut Burfi Tray 7Pcs" data-price="70">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/7N palm jaggery Drumstick Spinach Burfi Tray.jpg.jpeg" class="img-fluid ob-center" alt=""></div>
+                    <h6>7N Palm jaggery Drumstick Spinach Burfi Tray 7Pcs</h6><p>₹70 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="7N Palm jaggery Drumstick Spinach Burfi Tray 7Pcs" data-price="70">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/7N palm jaggery Dried Ginger Burfi Tray.jpg.jpeg" class="img-fluid ob-center" alt=""></div>
+                    <h6>7N Palm jaggery Dried Ginger Burfi Tray 7Pcs</h6><p>₹70 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="7N Palm jaggery Dried Ginger Burfi Tray 7Pcs" data-price="70">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/7N palm jaggery Cumin Peanut Burfi Tray.jpg.jpeg" class="img-fluid ob-center" alt=""></div>
+                    <h6>7N Palm jaggery Cumin Peanut Burfi Tray 7Pcs</h6><p>₹70 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="7N Palm jaggery Cumin Peanut Burfi Tray 7Pcs" data-price="70">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/7N palm jaggery Amla Peanut Burfi Tray.jpg.jpeg" class="img-fluid ob-center" alt=""></div>
+                    <h6>7N Palm jaggery Amla Peanut Burfi Tray 7Pcs</h6><p>₹70 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="7N Palm jaggery Amla Peanut Burfi Tray 7Pcs" data-price="70">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/7N palm jaggery  Curry Leaves Peanut Burfi Tray.jpg.jpeg" class="img-fluid ob-center" alt=""></div>
+                    <h6>7N Palm jaggery Curry Leaves Peanut Burfi Tray 7Pcs</h6><p>₹70 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="7N Palm jaggery  Curry Leaves Peanut Burfi Tray 7Pcs" data-price="70">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/7N palm jaggery  Basil Peanut Burfi Tray.jpg.jpeg" class="img-fluid ob-center" alt=""></div>
+                    <h6>7N Palm jaggery Basil Peanut Burfi Tray 7Pcs</h6><p>₹70 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="7N Palm jaggery  Basil Peanut Burfi Tray 7Pcs" data-price="70">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/7N  palm jaggery Omam Peanut Burfi Tray.jpg.jpeg" class="img-fluid ob-center" alt=""></div>
+                    <h6>7N Palm jaggery Omam Peanut Burfi Tray 7Pcs</h6><p>₹70 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="7N Palm jaggery Omam Peanut Burfi Tray 7Pcs" data-price="70">
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ MILLAT THOKKU BURFI ═══ -->
+        <div class="cat-titel d-flex w-100 mb-4 justify-content-center">
+            <div class="text-center">
+                <img src="images/title-top.png" class="col-3" alt="">
+                <h2 class="text-center mb-0 mt-2 hf c1">Millat Thokku Burfi</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/PeanutThokku15Pcs50.jpeg" class="img-fluid" alt="Peanut Thokku 15Pcs"></div>
+                    <h6>Peanut Thokku 15Pcs</h6><p>₹50 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Peanut Thokku 15Pcs" data-price="50">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/KODOMILLETPEANUTTHOKKU30Pcs100.jpg" class="img-fluid" alt="Kodo Millet Peanut Thokku 30Pcs"></div>
+                    <h6>Kodo Millet Peanut Thokku 30Pcs</h6><p>₹100 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Kodo Millet Peanut Thokku 30Pcs" data-price="100">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/FINGERMILLETPEANUTTHOKKU15Pcs50.jpeg" class="img-fluid" alt="Finger Millet Peanut Thokku 15Pcs"></div>
+                    <h6>Finger Millet Peanut Thokku 15Pcs</h6><p>₹50 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Finger Millet Peanut Thokku 15Pcs" data-price="50">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/FRIEDGRAMTHOKKU15Pcs50.jpeg" class="img-fluid" alt="Fried Gram Thokku 15Pcs"></div>
+                    <h6>Fried Gram Thokku 15Pcs</h6><p>₹50 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Fried Gram Thokku 15Pcs" data-price="50">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/PeanutThokku30Pcs100.jpg" class="img-fluid" alt="Peanut Thokku 30Pcs"></div>
+                    <h6>Peanut Thokku 30Pcs</h6><p>₹100 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Peanut Thokku 30Pcs" data-price="100">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/FINGERMILLETPEANUTTHOKKU30Pcs100.jpg" class="img-fluid" alt="Finger Millet Peanut Thokku 30Pcs"></div>
+                    <h6>Finger Millet Peanut Thokku 30Pcs</h6><p>₹100 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Finger Millet Peanut Thokku 30Pcs" data-price="100">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/FRIEDGRAMTHOKKU30Pcs100.jpg" class="img-fluid" alt="Fried Gram Thokku 30Pcs"></div>
+                    <h6>Fried Gram Thokku 30Pcs</h6><p>₹100 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Fried Gram Thokku 30Pcs" data-price="100">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/MasalPeautBurfi9Pcs80.jpg" class="img-fluid" alt="Masala Peanut Burfi 9Pcs"></div>
+                    <h6>Masala Peanut Burfi 9Pcs</h6><p>₹80 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Masala Peanut Burfi 9Pcs" data-price="80">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/SORGHUMPEANUTTHOKKU15Pcs50.jpeg" class="img-fluid" alt="Sorghum Peanut Thokku 15Pcs"></div>
+                    <h6>Sorghum Peanut Thokku 15Pcs</h6><p>₹50 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Sorghum Peanut Thokku 15Pcs" data-price="50">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3">
+                <div class="product-card p-2">
+                    <div class="pro-img-box"><img src="products/FOXTAILPEANUTTHOKKU15Pcs50.jpeg" class="img-fluid" alt="Foxtail Peanut Thokku 15Pcs"></div>
+                    <h6>Foxtail Peanut Thokku 15Pcs</h6><p>₹50 / Pack</p>
+                    <input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Foxtail Peanut Thokku 15Pcs" data-price="50">
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ SAVORIES ═══ -->
+        <div class="cat-titel d-flex w-100 mb-4 justify-content-center">
+            <div class="text-center">
+                <img src="images/title-top.png" class="col-3" alt="">
+                <h2 class="text-center mb-0 mt-2 hf c1">Savories</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/200G-Mixter.jpg" class="img-fluid ob-center" alt="200G Mixter"></div><h6>200G Mixter</h6><p>₹65 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="200G MIXTER" data-price="65"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/200G-Butter-Murukku.jpg" class="img-fluid ob-center" alt="200G Butter Murukku"></div><h6>200G Butter Murukku</h6><p>₹65 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="200G-Butter Murukku" data-price="65"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/200G-kara-Boonthi.jpg" class="img-fluid ob-center" alt="200G Kara Boonthi"></div><h6>200G Kara Boonthi</h6><p>₹65 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="200G-kara Boonthi" data-price="65"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/200G-Masala-Kadalai.jpg" class="img-fluid ob-center" alt="200G Masala Kadalai"></div><h6>200G Masala Kadalai</h6><p>₹65 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="200G-Masala Kadalai" data-price="65"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/200G-kara-sevu.jpg" class="img-fluid ob-center" alt="200G Kara Sevu"></div><h6>200G Kara Sevu</h6><p>₹65 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="200G-kara Sevu" data-price="65"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/200G-Moong-Dhal.jpg" class="img-fluid ob-center" alt="200G Moong Dhal"></div><h6>200G Moong Dhal</h6><p>₹65 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="200G-Moong Dhal" data-price="65"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/200G-oil-masala-kadalai.jpg" class="img-fluid ob-center" alt="200G Masala Peanuts"></div><h6>200G Masala Peanuts</h6><p>₹65 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="200G-Masala Peanuts" data-price="65"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/200G-Murukku.jpg" class="img-fluid ob-center" alt="200G Murukku"></div><h6>200G Murukku</h6><p>₹65 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="200G-Murukku" data-price="65"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/200G-Ribbon-Pakoda.jpg" class="img-fluid ob-center" alt="200G Ribbon Pakoda"></div><h6>200G Ribbon Pakoda</h6><p>₹65 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="200G-Ribbon-Pakoda" data-price="65"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/200G Kadalai Paruppu (Gram Dal).jpg" class="img-fluid ob-center" alt="200G Kadalai Paruppu"></div><h6>200G Kadalai Paruppu (Gram Dal)</h6><p>₹65 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="200G kadalai paruppu (Gram Dal)" data-price="65"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/Sweet-Maida-Biscuits.jpg" class="img-fluid ob-center" alt="200G Sweet Maida Biscuits"></div><h6>200G Sweet Maida Biscuits</h6><p>₹65 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="200G-Sweet-Maida-Biscuits" data-price="65"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/200G-Chana Dal Nmakeen.jpg" class="img-fluid ob-center" alt="200G Chana Dhal Nmakeen"></div><h6>200G Chana Dhal Nmakeen</h6><p>₹65 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="200G-Chana Dhal Nmakeen" data-price="65"></div></div>
+        </div>
+
+        <!-- ═══ GIFT PACKS ═══ -->
+        <div class="" id="lovers-day-packs"></div>
+        <div class="cat-titel d-flex w-100 mb-4 justify-content-center">
+            <div class="text-center">
+                <img src="images/title-top.png" class="col-3" alt="">
+                <h2 class="text-center mb-0 mt-2 hf c1">Gift Packs</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/lovers-Day Crused-Peanut-BurfiBar.jpg" class="img-fluid" alt="Lovers Day Crused Peanut BurfiBar"></div><h6>Lovers Day Crused Peanut BurfiBar</h6><p>₹100 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="lovers Day Crused Peanut BurfiBar" data-price="100"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/lovers-day-peanut-burfi.jpg" class="img-fluid" alt="Lovers Day Peanut Burfi"></div><h6>Lovers Day Peanut Burfi</h6><p>₹100 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="lovers Day Peanut Burfi" data-price="100"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/lovers-Day-pack.jpeg" class="img-fluid" alt="Lovers Day Gift Box"></div><h6>Lovers Day Gift Box</h6><p>₹250 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="lovers Day Gift Box" data-price="250"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/elite-gift.jpeg" class="img-fluid" alt="Elite Gift Pack"></div><h6>Elite Gift Pack</h6><p>₹500 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Elite Gift Pack" data-price="500"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/diamond-gift.jpeg" class="img-fluid" alt="Diamond Gift Pack"></div><h6>Diamond Gift Pack</h6><p>₹450 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Diamond Gift Pack" data-price="450"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/platinum-gift.jpeg" class="img-fluid" alt="Platinum Gift Pack"></div><h6>Platinum Gift Pack</h6><p>₹350 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Platinum Gift Pack" data-price="350"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/gold-gift.jpeg" class="img-fluid" alt="Gold Gift Pack"></div><h6>Gold Gift Pack</h6><p>₹270 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Gold Gift Pack" data-price="270"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/silver-gift.jpeg" class="img-fluid" alt="Silver Gift Pack"></div><h6>Silver Gift Pack</h6><p>₹225 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Silver Gift Pack" data-price="225"></div></div>
+            <div class="col-md-3 col-6 p-1 p-lg-2 mb-3"><div class="product-card p-2"><div class="pro-img-box"><img src="products/standrs-gift.jpeg" class="img-fluid" alt="Standard Gift Pack"></div><h6>Standard Gift Pack</h6><p>₹125 / Pack</p><input type="number" class="form-control qty" placeholder="Enter Qty" min="0" data-name="Standard Gift Pack" data-price="125"></div></div>
+        </div>
+
+    </div>
+
+    <!-- FLOATING ORDER BAR -->
+    <div class="order-bar d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Total: ₹ <span id="totalAmount" class="text-success">0</span></h5>
+        <button class="btn btn-glass-ef py-3" onclick="openOrderPopup()">Click to Proceed</button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="ecom-footer bg-dark text-light pt-5 pb-5 mb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="images/logo2.png" class="w-75" alt="Thanga Mani Logo">
+                    <p class="small w">Peanut burfi made with premium ingredients and traditional taste.</p>
+                    <p class="ecom-fssai badge bg-warning w">FSSAI No: 246006000061</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="c1">Quick Links</h5>
+                    <ul class="list-unstyled ecom-footer-links">
+                        <li><a href="index.html" class="text-light text-decoration-none w">Home</a></li>
+                        <li><a href="about-us.html" class="text-light text-decoration-none w">About Us</a></li>
+                        <li><a href="contact-us.html" class="text-light text-decoration-none w">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="c1">Contact</h5>
+                    <p class="small w">📍 No-6, Chinnakalai Nagar, Near Munniappan Samy Kovil, RV Nagar(Extn), Begampur (post), Dindigul, Tamilnadu-624002</p>
+                    <p class="small w">📞 +91 99650 61448</p>
+                    <p class="small w">📞 +91 99942 55570</p>
+                    <p class="small w">📞 +91 81481 85570</p>
+                    <p class="small w">✉️ marketing@thangamani.in</p>
+                </div>
+            </div>
+        </div>
+        <div class="ecom-footer-bottom bg-black text-center py-3 mt-3">
+            <small>© 2026 Thangamani Mittai. All Rights Reserved.</small><br>
+            <small>Designed by <a href="https://craftesmends.in/" target="_blank" class="w">Craftsmen Digital Solutions</a></small>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/catch.js"></script>
+    <script src="js/lightbox-plus-jquery.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- Main product logic — no secrets inside -->
+    <script src="js/product.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+        $(window).scroll(function () {
+            $('.navbar').toggleClass('newnav', $(this).scrollTop() > 10);
+        });
+        AOS.init();
+
+        const progressCircle = document.querySelector('.autoplay-progress svg');
+        const progressContent = document.querySelector('.autoplay-progress span');
+        var swiper = new Swiper('.mySwiper', {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            on: {
+                autoplayTimeLeft(s, time, progress) {
+                    progressCircle.style.setProperty('--progress', 1 - progress);
+                    progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+                },
+            },
+        });
+    </script>
+</body>
+</html>
