@@ -10,18 +10,21 @@
 // ── EmailJS config (public key only — safe in frontend) ───────
 const EMAILJS_SERVICE_ID  = 'service_ujdih9m';
 const EMAILJS_TEMPLATE_ID = 'template_2k1ctp2';
+const data = await res.json();
 const orderId = data.order_id;
 // Public key is already initialized in index.html <head>
 
 // ═══════════════════════════════════════════
 // TOTAL CALCULATION
 // ═══════════════════════════════════════════
-let qtyInputs = document.querySelectorAll('.qty');
+document.addEventListener("DOMContentLoaded", () => {
+    const qtyInputs = document.querySelectorAll('.qty');
 
-qtyInputs.forEach(input => {
-    input.addEventListener('input', () => {
-        if (input.value === '' || input.value < 0) input.value = 0;
-        calculateTotal();
+    qtyInputs.forEach(input => {
+        input.addEventListener('input', () => {
+            if (input.value === '' || input.value < 0) input.value = 0;
+            calculateTotal();
+        });
     });
 });
 
@@ -108,10 +111,17 @@ async function confirmOrder() {
     })
 });
 
-const data = await res.json();
+const res = await fetch('/api/create-order', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        totalAmount: Number(totalAmount)
+    })
+});
 
-        if (!res.ok) throw new Error(`Server error: ${res.status}`);
-        orderData = await res.json();
+const orderData = await res.json();
 
         if (!orderData.order_id) throw new Error('No order_id received');
     } catch (err) {
@@ -157,7 +167,7 @@ const data = await res.json();
                         razorpay_order_id:   response.razorpay_order_id,
                         razorpay_payment_id: response.razorpay_payment_id,
                         razorpay_signature:  response.razorpay_signature,
-                        orderNumber:         orderData.order_number,
+                        
                         totalAmount,
                         customer: { name, phone, address, city, pincode },
                         cartItems,
