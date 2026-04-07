@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    
     <!-- EmailJS — only PUBLIC KEY here, safe to expose -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
@@ -160,7 +160,7 @@
     <div class="container my-4 pb-5 px-4 px-lg-0">
 
         <!-- ORDER MODAL — customer details form -->
-        <div class="modal fade order-modal" id="customerModal">
+<div class="modal fade order-modal" id="customerModal" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content order-modal-box">
                     <div class="modal-header">
@@ -176,7 +176,7 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                        <button class="btn btn-glass-ef order-confirm-btn" onclick="confirmOrder()">Proceed to Pay</button>
+                        <button type="button" class="btn btn-glass-ef order-confirm-btn" onclick="confirmOrder()">Proceed to Pay</button>
                     </div>
                 </div>
             </div>
@@ -560,7 +560,7 @@
     <!-- FLOATING ORDER BAR -->
     <div class="order-bar d-flex justify-content-between align-items-center">
         <h5 class="mb-0">Total: ₹ <span id="totalAmount" class="text-success">0</span></h5>
-        <button class="btn btn-glass-ef py-3" onclick="openOrderPopup()">Click to Proceed</button>
+       <button type="button" class="btn btn-glass-ef py-3" onclick="openOrderPopup()">"Click to Proceed"</button>
     </div>
 
     <!-- FOOTER -->
@@ -597,38 +597,39 @@
     </footer>
 
     <!-- SCRIPTS -->
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/catch.js"></script>
-    <script src="js/lightbox-plus-jquery.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/swiper-bundle.min.js"></script>
-    <!-- Main product logic — no secrets inside -->
-    <script src="js/product.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/lightbox-plus-jquery.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/swiper-bundle.min.js"></script>
 
-    <script>
-        $(window).scroll(function () {
-            $('.navbar').toggleClass('newnav', $(this).scrollTop() > 10);
-        });
-        AOS.init();
+<!-- MAIN LOGIC -->
+<script src="js/product.js" defer></script>
 
-        const progressCircle = document.querySelector('.autoplay-progress svg');
-        const progressContent = document.querySelector('.autoplay-progress span');
-        var swiper = new Swiper('.mySwiper', {
-            spaceBetween: 30,
-            centeredSlides: true,
-            autoplay: { delay: 3000, disableOnInteraction: false },
-            pagination: { el: '.swiper-pagination', clickable: true },
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-            on: {
-                autoplayTimeLeft(s, time, progress) {
-                    progressCircle.style.setProperty('--progress', 1 - progress);
-                    progressContent.textContent = `${Math.ceil(time / 1000)}s`;
-                },
+<script>
+    $(window).scroll(function () {
+        $('.navbar').toggleClass('newnav', $(this).scrollTop() > 10);
+    });
+
+    AOS.init();
+
+    const progressCircle = document.querySelector('.autoplay-progress svg');
+    const progressContent = document.querySelector('.autoplay-progress span');
+
+    var swiper = new Swiper('.mySwiper', {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        on: {
+            autoplayTimeLeft(s, time, progress) {
+                progressCircle.style.setProperty('--progress', 1 - progress);
+                progressContent.textContent = `${Math.ceil(time / 1000)}s`;
             },
-        });
-    </script>
+        },
+    });
+</script>
 </body>
 </html>
